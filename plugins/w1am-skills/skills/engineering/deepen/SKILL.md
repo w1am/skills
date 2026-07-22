@@ -1,17 +1,14 @@
 ---
 name: deepen
 description: Simplify code by simplifying the business logic and underlying model, not by extracting reusable methods. Use when business rules feel tangled, conditionals sprawl, or a hidden concept is suspected.
+argument-hint: [path or component or "what feels complex"]
 disable-model-invocation: true
 allowed-tools: Read, Grep, Glob, Task, Edit, Bash(git status:*), Bash(git diff:*)
 ---
 
 # Simplify the Logic, Not Just the Code
 
-Usage: `/deepen [path or component or "what feels complex"]`
-
-Target: **whatever the user named when invoking this skill** — a path, a component,
-or a description of what feels complex. If they named nothing, ask what to target
-before starting.
+Target: **$ARGUMENTS**
 
 You are reducing *problem* complexity (the business logic + model), which in turn
 collapses *code* complexity. You are NOT extracting helpers, renaming, or

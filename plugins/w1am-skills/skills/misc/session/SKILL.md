@@ -1,14 +1,10 @@
 ---
 name: session
-description: Copy the current Claude Code session id to the clipboard. Run it as /session.
+description: Copy the current session id to the clipboard
 disable-model-invocation: true
-allowed-tools: Bash
+allowed-tools: Bash(printf:*), Bash(wl-copy:*), Bash(xclip:*), Bash(xsel:*), Bash(pbcopy:*)
 ---
 
-Copy the current session id to the clipboard, then confirm. Run exactly this, once:
+Session id copied to clipboard: !`printf '%s' "$CLAUDE_CODE_SESSION_ID" | { wl-copy 2>/dev/null || xclip -selection clipboard 2>/dev/null || xsel -ib 2>/dev/null || pbcopy 2>/dev/null; } && printf '%s' "$CLAUDE_CODE_SESSION_ID"`
 
-```
-printf '%s' "$CLAUDE_CODE_SESSION_ID" | { wl-copy 2>/dev/null || xclip -selection clipboard 2>/dev/null || xsel -ib 2>/dev/null || pbcopy 2>/dev/null; } && printf '%s' "$CLAUDE_CODE_SESSION_ID"
-```
-
-Tell the user the printed session id was copied to their clipboard. Do nothing else.
+Confirm to the user that the session id above was copied to their clipboard. Do not do anything else.

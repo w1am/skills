@@ -1,12 +1,11 @@
 ---
 name: cut-release
-description: Write release notes for a version range and update the GitHub draft release. Run it as /cut-release.
+description: Write release notes for a version range and update the GitHub draft release
+argument-hint: <new-version> [previous-version] [--style customers|developers|internal]
 disable-model-invocation: true
 ---
 
-Usage: `/cut-release <new-version> [previous-version] [--style customers|developers|internal]`
-
-Write release notes for the version range the user named and update the draft release on GitHub.
+Write release notes for $ARGUMENTS and update the draft release on GitHub.
 
 ## Style
 Pick with --style (default: customers). Definitions:
@@ -55,7 +54,7 @@ Everything below obeys the chosen preset. Add a preset by editing this block, no
 ```
 
 ## Gather
-0. Read --style from what the user gave (default customers). Use that preset's rules in Write and Verify.
+0. Read --style from $ARGUMENTS (default customers). Use that preset's rules in Write and Verify.
 1. `gh repo view --json nameWithOwner -q .nameWithOwner` for the repo.
 2. `gh release list --limit 5` to see existing releases (the draft for <new> may or may not exist yet).
 3. If <previous-version> wasn't passed, use the latest published (non-draft) release as <previous>.
