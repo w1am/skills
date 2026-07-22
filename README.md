@@ -23,12 +23,12 @@ take the ones you want.
 Install any of them:
 
 ```
-/plugin install tts@claude-plugins
-/plugin install notify@claude-plugins
-/plugin install sudo-askpass@claude-plugins
-/plugin install tmux-title@claude-plugins
-/plugin install dev-commands@claude-plugins
-/plugin install w1am-skills@claude-plugins
+/plugin install tts@w1am
+/plugin install notify@w1am
+/plugin install sudo-askpass@w1am
+/plugin install tmux-title@w1am
+/plugin install dev-commands@w1am
+/plugin install w1am-skills@w1am
 ```
 
 ## Layout

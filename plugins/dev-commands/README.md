@@ -6,7 +6,7 @@ Personal slash commands.
 
 ```
 /plugin marketplace add w1am/claude-plugins
-/plugin install dev-commands@claude-plugins
+/plugin install dev-commands@w1am
 ```
 
 ## Commands

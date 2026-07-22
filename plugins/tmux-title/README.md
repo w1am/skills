@@ -8,7 +8,7 @@ outside tmux.
 
 ```
 /plugin marketplace add w1am/claude-plugins
-/plugin install tmux-title@claude-plugins
+/plugin install tmux-title@w1am
 ```
 
 ## How it works

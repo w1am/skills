@@ -12,7 +12,7 @@ The hook extracts the `<speak>…</speak>` block the Spoken style emits. Without
 
 ```
 /plugin marketplace add w1am/claude-plugins
-/plugin install tts@claude-plugins
+/plugin install tts@w1am
 ```
 
 Then set up the engine and pick the voice style:

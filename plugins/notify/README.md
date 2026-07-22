@@ -6,7 +6,7 @@ Plays a short completion chime when Claude Code finishes a turn, via a Stop hook
 
 ```
 /plugin marketplace add w1am/claude-plugins
-/plugin install notify@claude-plugins
+/plugin install notify@w1am
 ```
 
 ## How it works

@@ -10,7 +10,7 @@ subfolders aren't auto-discovered).
 
 ```
 /plugin marketplace add w1am/claude-plugins
-/plugin install w1am-skills@claude-plugins
+/plugin install w1am-skills@w1am
 ```
 
 ## Layout

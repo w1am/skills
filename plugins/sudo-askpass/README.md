@@ -9,7 +9,7 @@ sudo asks for the password through a GUI dialog instead of a tty.
 
 ```
 /plugin marketplace add w1am/claude-plugins
-/plugin install sudo-askpass@claude-plugins
+/plugin install sudo-askpass@w1am
 ```
 
 ## Requirements

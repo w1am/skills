@@ -1,8 +1,9 @@
 {
-  "name": "claude-plugins",
+  "name": "w1am",
   "owner": {
     "name": "w1am"
   },
+  "description": "w1am's Claude Code plugins as an installable marketplace: TTS, notifications, sudo askpass, tmux titles, dev commands, and agent skills.",
   "plugins": [
     {
       "name": "tts",
