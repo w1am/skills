@@ -1,0 +1,6 @@
+tts-venv/
+tts-models/
+__pycache__/
+*.pyc
+.elevenlabs-key
+tts.log

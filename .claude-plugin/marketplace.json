@@ -1,0 +1,13 @@
+{
+  "name": "claude-tts",
+  "owner": {
+    "name": "w1am"
+  },
+  "plugins": [
+    {
+      "name": "claude-tts",
+      "source": "./",
+      "description": "Speak Claude Code's replies aloud, with a Spoken output style and a fallback chain of TTS engines."
+    }
+  ]
+}
