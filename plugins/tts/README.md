@@ -64,9 +64,9 @@ The default chain is OS-specific — the first ready engine wins:
 - **macOS**: `say, edge, kokoro, elevenlabs` (native `say` first: zero-install, offline).
 - **Linux / Windows**: `edge, kokoro, elevenlabs`.
 
-Reorder with `CC_TTS_CHAIN`, or pin one with `CC_TTS_ENGINE`. `say` is offline and
-instant but a touch less natural than `kokoro`; pin or reorder if you want Kokoro's
-quality on macOS.
+Reorder with `CC_TTS_CHAIN`; a single value pins one engine (`CC_TTS_CHAIN=kokoro`).
+`say` is offline and instant but a touch less natural than `kokoro`; pin or reorder
+if you want Kokoro's quality on macOS.
 
 ## Configuration (env vars)
 
@@ -75,11 +75,11 @@ behavior:
 
 | Var | Default | Effect |
 |-----|---------|--------|
-| `CC_TTS_ENGINE` | — | Pin a single engine, ignore the chain. |
-| `CC_TTS_CHAIN` | `edge,kokoro,elevenlabs` | Comma-separated fallback order. |
+| `CC_TTS_CHAIN` | per-OS (see above) | Comma-separated fallback order; a single value pins one engine. |
 | `CC_TTS_MAX_CHARS` | `2000` | Truncate longer replies. |
-| `CC_TTS_IGNORE_MEDIA` | — | Speak even while other media is playing. |
-| `CC_TTS_VOICE` / `CC_TTS_RATE` / `CC_TTS_PITCH` | | Edge voice knobs. |
+| `CC_TTS_TIMEOUT` | per-engine | Override synthesis timeout (seconds) for every engine. |
+| `CC_TTS_IGNORE_MEDIA` | — | Speak even while other media is playing (Linux only). |
+| `CC_TTS_EDGE_VOICE` / `CC_TTS_EDGE_RATE` / `CC_TTS_EDGE_PITCH` | | Edge voice knobs. |
 | `CC_TTS_SAY_VOICE` / `CC_TTS_SAY_RATE` | | macOS `say` voice and words-per-minute. |
 | `CC_TTS_KOKORO_VOICE` / `CC_TTS_KOKORO_SPEED` | | Kokoro voice knobs. |
 | `CC_TTS_EL_VOICE` / `CC_TTS_EL_MODEL` | | ElevenLabs voice knobs. |

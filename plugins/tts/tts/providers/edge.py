@@ -17,10 +17,10 @@ class Edge(Provider):
     name = "edge"
 
     def __init__(self) -> None:
-        self.voice = config.env("CC_TTS_VOICE", "en-IE-EmilyNeural")
-        self.rate = config.env("CC_TTS_RATE", "+6%")
-        self.pitch = config.env("CC_TTS_PITCH", "-5Hz")
-        self.timeout = config.env_int("CC_TTS_EDGE_TIMEOUT", 30)
+        self.voice = config.env("CC_TTS_EDGE_VOICE", "en-IE-EmilyNeural")
+        self.rate = config.env("CC_TTS_EDGE_RATE", "+6%")
+        self.pitch = config.env("CC_TTS_EDGE_PITCH", "-5Hz")
+        self.timeout = config.timeout(30)
 
     def binary(self) -> str | None:
         return shutil.which("edge-tts")

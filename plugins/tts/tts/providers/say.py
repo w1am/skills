@@ -21,7 +21,7 @@ class Say(Provider):
     def __init__(self) -> None:
         self.voice = config.env("CC_TTS_SAY_VOICE")
         self.rate = config.env("CC_TTS_SAY_RATE")
-        self.timeout = config.env_int("CC_TTS_SAY_TIMEOUT", 30)
+        self.timeout = config.timeout(30)
 
     def check(self) -> None:
         if sys.platform != "darwin":

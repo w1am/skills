@@ -36,8 +36,6 @@ def env_int(key: str, default: int) -> int:
 
 
 def chain() -> tuple[str, ...]:
-    if pinned := env("CC_TTS_ENGINE"):
-        return (pinned,)
     if custom := env("CC_TTS_CHAIN"):
         return tuple(part.strip() for part in custom.split(",") if part.strip())
     return default_chain()
@@ -45,6 +43,10 @@ def chain() -> tuple[str, ...]:
 
 def max_chars() -> int:
     return env_int("CC_TTS_MAX_CHARS", 2000)
+
+
+def timeout(default: int) -> int:
+    return env_int("CC_TTS_TIMEOUT", default)
 
 
 def sample_text() -> str:
@@ -55,7 +57,7 @@ def configure_logging() -> None:
     if not env("CC_TTS_DEBUG"):
         logging.disable(logging.CRITICAL)
         return
-    path = Path(env("CC_TTS_LOG", str(ROOT / "tts.log")))
+    path = ROOT / "tts.log"
     logging.basicConfig(
         level=logging.DEBUG,
         format="%(asctime)s %(message)s",

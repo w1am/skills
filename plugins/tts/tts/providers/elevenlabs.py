@@ -26,7 +26,7 @@ class ElevenLabs(Provider):
         self.stability = config.env_float("CC_TTS_EL_STABILITY", 0.85)
         self.similarity = config.env_float("CC_TTS_EL_SIMILARITY", 0.90)
         self.speed = config.env_float("CC_TTS_EL_SPEED", 1.08)
-        self.timeout = config.env_int("CC_TTS_EL_TIMEOUT", 20)
+        self.timeout = config.timeout(20)
 
     def key(self) -> str:
         if inline := os.environ.get("ELEVENLABS_API_KEY", "").strip():
