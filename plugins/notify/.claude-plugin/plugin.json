@@ -4,6 +4,5 @@
   "description": "Play a short completion chime when Claude Code finishes a turn.",
   "keywords": ["notification", "sound", "hook"],
   "author": { "name": "w1am" },
-  "license": "MIT",
-  "hooks": "./hooks/hooks.json"
+  "license": "MIT"
 }
