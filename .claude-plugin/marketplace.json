@@ -30,9 +30,11 @@
       "description": "Personal slash commands: session id, cut-release, and deepen."
     },
     {
-      "name": "skills",
-      "source": "./plugins/skills",
-      "description": "A bundle of personal skills (naming-review, and more as they land)."
+      "name": "w1am-skills",
+      "source": "./plugins/w1am-skills",
+      "description": "Personal agent skills organized by category (naming-review, and more as they land).",
+      "category": "engineering",
+      "keywords": ["skills", "engineering", "naming", "review"]
     }
   ]
 }

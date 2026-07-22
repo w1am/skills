@@ -18,7 +18,7 @@ take the ones you want.
 | [`sudo-askpass`](plugins/sudo-askpass) | PreToolUse hook | Lets the Bash tool run `sudo` by routing the prompt through a GUI askpass helper. |
 | [`tmux-title`](plugins/tmux-title) | Session hooks | Renames the tmux window to the project dir while Claude runs, restores it on exit. |
 | [`dev-commands`](plugins/dev-commands) | Commands | `/session`, `/cut-release`, `/deepen`. |
-| [`skills`](plugins/skills) | Skills | All personal skills in one plugin. Ships `naming-review`; drop new skills in alongside it. |
+| [`w1am-skills`](plugins/w1am-skills) | Skills | All personal skills in one plugin, organized by category (`skills/engineering/…`). Ships `naming-review`. |
 
 Install any of them:
 
@@ -28,7 +28,7 @@ Install any of them:
 /plugin install sudo-askpass@claude-plugins
 /plugin install tmux-title@claude-plugins
 /plugin install dev-commands@claude-plugins
-/plugin install skills@claude-plugins
+/plugin install w1am-skills@claude-plugins
 ```
 
 ## Layout
@@ -41,7 +41,7 @@ plugins/
   sudo-askpass/   hooks/ bin/
   tmux-title/     hooks/
   dev-commands/   commands/
-  skills/         skills/
+  w1am-skills/    skills/engineering/…
 ```
 
 Each plugin has its own `README.md` and `.claude-plugin/plugin.json`.
