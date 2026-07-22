@@ -1,12 +1,12 @@
-# claude-plugins
+# w1am/skills
 
-A personal Claude Code marketplace. Each plugin is small and installs on its own —
-take the ones you want.
+A personal Claude Code marketplace (handle `w1am`). Each plugin is small and
+installs on its own — take the ones you want.
 
 ## Add the marketplace
 
 ```
-/plugin marketplace add w1am/claude-plugins
+/plugin marketplace add w1am/skills
 ```
 
 ## Plugins

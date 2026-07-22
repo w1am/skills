@@ -7,7 +7,7 @@ outside tmux.
 ## Install
 
 ```
-/plugin marketplace add w1am/claude-plugins
+/plugin marketplace add w1am/skills
 /plugin install tmux-title@w1am
 ```
 

@@ -5,7 +5,7 @@ Personal slash commands.
 ## Install
 
 ```
-/plugin marketplace add w1am/claude-plugins
+/plugin marketplace add w1am/skills
 /plugin install dev-commands@w1am
 ```
 

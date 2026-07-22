@@ -11,7 +11,7 @@ The hook extracts the `<speak>…</speak>` block the Spoken style emits. Without
 ## Install
 
 ```
-/plugin marketplace add w1am/claude-plugins
+/plugin marketplace add w1am/skills
 /plugin install tts@w1am
 ```
 
