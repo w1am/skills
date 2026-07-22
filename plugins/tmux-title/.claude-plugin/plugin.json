@@ -1,6 +1,6 @@
 {
   "name": "tmux-title",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Rename the current tmux window to the project directory while Claude Code runs, and restore automatic renaming on exit.",
   "keywords": ["tmux", "hook", "terminal"],
   "author": { "name": "w1am" },

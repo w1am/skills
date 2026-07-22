@@ -1,6 +1,6 @@
 {
   "name": "tts",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Speak Claude Code's replies aloud. Ships a Stop hook, a fallback chain of TTS engines (edge, kokoro, elevenlabs), and a Spoken output style tuned for the ear.",
   "keywords": ["tts", "text-to-speech", "voice", "accessibility", "audio"],
   "author": { "name": "w1am" },

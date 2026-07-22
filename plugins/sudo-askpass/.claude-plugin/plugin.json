@@ -1,6 +1,6 @@
 {
   "name": "sudo-askpass",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Let the Bash tool run sudo by routing the password prompt through a native GUI askpass helper.",
   "keywords": ["sudo", "askpass", "hook", "linux"],
   "author": { "name": "w1am" },
