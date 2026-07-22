@@ -1,12 +1,15 @@
 {
   "name": "w1am-skills",
   "version": "0.1.0",
-  "description": "w1am's agent skills, organized by category. Ships naming-review, with more to land beside it.",
+  "description": "w1am's agent skills, organized by category. Naming review, logic-deepening, release notes, and a session-id helper — each runnable as a /command.",
   "author": { "name": "w1am" },
   "repository": "https://github.com/w1am/skills",
   "license": "MIT",
-  "keywords": ["skills", "engineering", "naming", "review", "refactor"],
+  "keywords": ["skills", "engineering", "naming", "review", "refactor", "release"],
   "skills": [
-    "./skills/engineering/naming-review"
+    "./skills/engineering/naming-review",
+    "./skills/engineering/deepen",
+    "./skills/engineering/cut-release",
+    "./skills/misc/session"
   ]
 }

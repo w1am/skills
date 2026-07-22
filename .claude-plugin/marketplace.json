@@ -26,16 +26,11 @@
       "description": "Rename the current tmux window to the project directory while Claude Code runs."
     },
     {
-      "name": "dev-commands",
-      "source": "./plugins/dev-commands",
-      "description": "Personal slash commands: session id, cut-release, and deepen."
-    },
-    {
       "name": "w1am-skills",
       "source": "./plugins/w1am-skills",
-      "description": "Personal agent skills organized by category (naming-review, and more as they land).",
+      "description": "Personal agent skills organized by category, each runnable as a /command: naming-review, deepen, cut-release, session.",
       "category": "engineering",
-      "keywords": ["skills", "engineering", "naming", "review"]
+      "keywords": ["skills", "engineering", "naming", "review", "release"]
     }
   ]
 }

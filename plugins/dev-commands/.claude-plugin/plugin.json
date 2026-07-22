@@ -1,8 +1,0 @@
-{
-  "name": "dev-commands",
-  "version": "0.1.0",
-  "description": "Personal slash commands: copy the session id, cut release notes from a version range, and simplify logic by simplifying the model.",
-  "keywords": ["commands", "workflow", "release", "refactor"],
-  "author": { "name": "w1am" },
-  "license": "MIT"
-}
