@@ -1,9 +1,9 @@
 # tts
 
 Speak Claude Code's replies aloud. Ships a **Stop hook** that reads each reply, a
-fallback **chain of TTS engines** — `edge` (free, no key), `kokoro` (offline),
-`elevenlabs` (best quality, metered) — and a **Spoken** output style that makes
-replies sound right for the ear.
+fallback **chain of TTS engines** — `say` (macOS native, offline), `edge` (free,
+no key), `kokoro` (offline), `elevenlabs` (best quality, metered) — and a
+**Spoken** output style that makes replies sound right for the ear.
 
 The hook extracts the `<speak>…</speak>` block the Spoken style emits. Without
 that style it falls back to speaking the first paragraph.
@@ -54,12 +54,19 @@ session: `/output-style Spoken`, or set `"outputStyle": "Spoken"` in settings.
 
 | Engine | Setup | Notes |
 |--------|-------|-------|
+| `say` | none (macOS built-in) | Offline, instant, no download. macOS only. |
 | `edge` | `setup.sh` (uv tool, default) | Free, no key, needs network. Default voice. |
 | `kokoro` | `setup.sh --kokoro` | Offline, ~350MB model, better voice. |
 | `elevenlabs` | key in `~/.claude/.elevenlabs-key` or `ELEVENLABS_API_KEY` | Best quality, metered. |
 
-Default chain is `edge, kokoro, elevenlabs` — the first ready one wins. Reorder
-with `CC_TTS_CHAIN`, or pin one with `CC_TTS_ENGINE`.
+The default chain is OS-specific — the first ready engine wins:
+
+- **macOS**: `say, edge, kokoro, elevenlabs` (native `say` first: zero-install, offline).
+- **Linux / Windows**: `edge, kokoro, elevenlabs`.
+
+Reorder with `CC_TTS_CHAIN`, or pin one with `CC_TTS_ENGINE`. `say` is offline and
+instant but a touch less natural than `kokoro`; pin or reorder if you want Kokoro's
+quality on macOS.
 
 ## Configuration (env vars)
 
@@ -73,6 +80,7 @@ behavior:
 | `CC_TTS_MAX_CHARS` | `2000` | Truncate longer replies. |
 | `CC_TTS_IGNORE_MEDIA` | — | Speak even while other media is playing. |
 | `CC_TTS_VOICE` / `CC_TTS_RATE` / `CC_TTS_PITCH` | | Edge voice knobs. |
+| `CC_TTS_SAY_VOICE` / `CC_TTS_SAY_RATE` | | macOS `say` voice and words-per-minute. |
 | `CC_TTS_KOKORO_VOICE` / `CC_TTS_KOKORO_SPEED` | | Kokoro voice knobs. |
 | `CC_TTS_EL_VOICE` / `CC_TTS_EL_MODEL` | | ElevenLabs voice knobs. |
 | `CC_TTS_DEBUG=1` | — | Log to `~/.claude/tts.log`. |

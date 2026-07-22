@@ -17,6 +17,8 @@ ${CLAUDE_PLUGIN_ROOT}/bin/setup.sh --kokoro
 
 On Windows, run these under Git Bash (bundled with Git for Windows, which Claude Code already uses on Windows).
 
+On macOS the native `say` engine works with zero setup and is first in the default chain, so a Mac speaks out of the box even before `setup.sh` installs `edge-tts`. Running setup is still worth it for the higher-quality `edge` voice when online.
+
 After it finishes, the script prints `claude-tts doctor` output. Report whether an engine is ready and whether an audio player was found. macOS ships `afplay` and Windows has a built-in PowerShell player, so a player is only a concern on Linux. If Linux reports no player, tell the user to install one of: mpv, ffmpeg (ffplay), or pulseaudio (paplay).
 
 Then remind the user to select the voice output style with `/output-style Spoken` if they want replies tuned for speech.

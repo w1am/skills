@@ -2,11 +2,17 @@ from __future__ import annotations
 
 import logging
 import os
+import sys
 from pathlib import Path
 
 ROOT = Path(os.environ.get("CC_TTS_ROOT", "").strip() or Path.home() / ".claude")
-DEFAULT_CHAIN = ("edge", "kokoro", "elevenlabs")
 SAMPLE = "Done. The timeout was in seconds, not milliseconds. Three of four tests now pass."
+
+
+def default_chain() -> tuple[str, ...]:
+    if sys.platform == "darwin":
+        return ("say", "edge", "kokoro", "elevenlabs")
+    return ("edge", "kokoro", "elevenlabs")
 
 log = logging.getLogger("tts")
 
@@ -34,7 +40,7 @@ def chain() -> tuple[str, ...]:
         return (pinned,)
     if custom := env("CC_TTS_CHAIN"):
         return tuple(part.strip() for part in custom.split(",") if part.strip())
-    return DEFAULT_CHAIN
+    return default_chain()
 
 
 def max_chars() -> int:
