@@ -3,7 +3,7 @@ name: tts-setup
 description: Install the claude-tts Python environment (edge-tts by default, add --kokoro for the offline voice)
 ---
 
-Run the claude-tts setup script to build its virtualenv and install the default engine:
+Run the tts setup script to install the default engine (`edge-tts` as a global uv tool; `--kokoro` additionally builds an offline venv):
 
 ```
 ${CLAUDE_PLUGIN_ROOT}/bin/setup.sh

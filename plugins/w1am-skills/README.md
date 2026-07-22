@@ -6,16 +6,22 @@ a folder with a `SKILL.md`, grouped under a category directory, and every skill
 is listed explicitly in the manifest (category subfolders aren't
 auto-discovered).
 
-## Install
+## Install (agent, shell)
 
-```
-/plugin marketplace add w1am/skills
-/plugin install w1am-skills@w1am
+```sh
+claude plugin marketplace add w1am/skills
+claude plugin install w1am-skills@w1am --scope user
 ```
 
-Each skill is user-invocable as a `/command` (type its name). Ones with rich
+Available immediately, no setup. Each skill is invocable as a `/command` (its
+name; plugin skills also autocomplete as `/w1am-skills:<name>`). Ones with rich
 trigger phrasing may also be model-invoked; the rest set
-`disable-model-invocation: true` so they run only when you ask.
+`disable-model-invocation: true` so they run only when asked.
+
+Every `SKILL.md` is self-contained: an agent can read the raw file and follow it
+directly without invoking the plugin. The bodies use command-style features —
+`argument-hint`, `$ARGUMENTS`, and `` !`command` `` shell injection — which work
+because Claude Code merged custom commands into skills.
 
 ## Layout
 
