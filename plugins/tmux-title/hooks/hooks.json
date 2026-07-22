@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$TMUX\" ] && tmux rename-window \"cc:$(basename \"$PWD\")\""
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$TMUX\" ] && tmux set-option -w automatic-rename on"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,13 +1,38 @@
 {
-  "name": "claude-tts",
+  "name": "claude-plugins",
   "owner": {
     "name": "w1am"
   },
   "plugins": [
     {
-      "name": "claude-tts",
-      "source": "./",
+      "name": "tts",
+      "source": "./plugins/tts",
       "description": "Speak Claude Code's replies aloud, with a Spoken output style and a fallback chain of TTS engines."
+    },
+    {
+      "name": "notify",
+      "source": "./plugins/notify",
+      "description": "Play a short completion chime when Claude Code finishes a turn."
+    },
+    {
+      "name": "sudo-askpass",
+      "source": "./plugins/sudo-askpass",
+      "description": "Let the Bash tool run sudo by routing the password prompt through a native GUI askpass helper."
+    },
+    {
+      "name": "tmux-title",
+      "source": "./plugins/tmux-title",
+      "description": "Rename the current tmux window to the project directory while Claude Code runs."
+    },
+    {
+      "name": "dev-commands",
+      "source": "./plugins/dev-commands",
+      "description": "Personal slash commands: session id, cut-release, and deepen."
+    },
+    {
+      "name": "naming-review",
+      "source": "./plugins/naming-review",
+      "description": "Skill that reviews names in recently-changed code for drift and simplicity."
     }
   ]
 }

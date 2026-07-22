@@ -1,0 +1,8 @@
+{
+  "name": "naming-review",
+  "version": "0.1.0",
+  "description": "Skill that reviews names in recently-changed code for drift and simplicity, including when the right fix is to delete or split the symbol rather than rename it.",
+  "keywords": ["skill", "naming", "review", "refactor"],
+  "author": { "name": "w1am" },
+  "license": "MIT"
+}
