@@ -4,12 +4,24 @@ import argparse
 import json
 import sys
 
-from . import audio, config, registry, speaker, text
+from . import audio, config, detach, lock, media, registry, speaker, text
 from .providers.base import SynthesisFailed, Unavailable
 
 
 def cmd_speak(args) -> int:
-    payload = sys.stdin.read()
+    if args.worker:
+        return _speak_worker(args)
+    if media.is_playing():
+        return 0
+    payload = sys.stdin.buffer.read()
+    if not payload.strip():
+        return 0
+    detach.spawn_worker(payload, args.engine, args.verbose)
+    return 0
+
+
+def _speak_worker(args) -> int:
+    payload = sys.stdin.buffer.read().decode("utf-8", "replace")
     try:
         message = json.loads(payload).get("last_assistant_message") or ""
     except ValueError:
@@ -17,7 +29,10 @@ def cmd_speak(args) -> int:
     spoken = text.spoken(message, config.max_chars())
     if not spoken:
         return 0
-    return say(spoken, args)
+    with lock.single_instance() as acquired:
+        if not acquired:
+            return 0
+        return say(spoken, args)
 
 
 def cmd_say(args) -> int:
@@ -76,7 +91,7 @@ def cmd_doctor(args) -> int:
     active = config.chain()
     print(f"chain:  {' -> '.join(active)}")
     found = audio.player()
-    print(f"player: {found[0] if found else 'NONE FOUND'}")
+    print(f"player: {found or 'NONE FOUND'}")
     ordered = sorted(registry.names(),
                      key=lambda name: (active.index(name) if name in active else len(active), name))
     for name in ordered:
@@ -102,8 +117,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="tts", description="Speak Claude Code replies aloud.")
     sub = parser.add_subparsers(dest="command", required=True)
 
-    sub.add_parser("speak", parents=[common],
-                   help="read hook JSON on stdin and speak its <speak> block")
+    speak_parser = sub.add_parser("speak", parents=[common],
+                                  help="read hook JSON on stdin and speak its <speak> block")
+    speak_parser.add_argument("--worker", action="store_true", help=argparse.SUPPRESS)
 
     say_parser = sub.add_parser("say", parents=[common], help="speak arbitrary text")
     say_parser.add_argument("words", nargs="*")

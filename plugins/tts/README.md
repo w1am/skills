@@ -26,12 +26,19 @@ bash "$tts_bin/setup.sh" --kokoro  # optional: offline engine + ~350MB model
 ```
 
 `setup.sh` installs [uv](https://docs.astral.sh/uv/) if missing, then `edge-tts`.
-It needs `python3` and an audio player on `PATH`.
+It needs `python3` and, on Linux, an audio player on `PATH`.
 
-### Audio player (one system dependency)
+**Windows:** run `setup.sh` from **Git Bash** (bundled with Git for Windows,
+which Claude Code already uses on Windows). Everything else works the same. uv is
+installed via its PowerShell installer automatically.
+
+### Audio player
 
 Playback uses the first found of: `mpv`, `afplay` (macOS), `ffplay` (ffmpeg),
-`paplay`, `aplay`. Install one, e.g. `sudo apt install mpv` or `brew install mpv`.
+`paplay`, `pw-play`, `aplay`, `cvlc`. macOS ships `afplay`, so nothing to
+install. Windows falls back to a built-in PowerShell player (Windows Media via
+`winmm`), so nothing to install there either. On Linux install one, e.g.
+`sudo apt install mpv`.
 
 ## Verify (agent, shell)
 
@@ -79,7 +86,10 @@ List available voices per engine:
 
 ## How it works
 
-`hooks/hooks.json` registers a Stop hook → `bin/speak.sh`. That script skips if
-other audio is playing, takes a single-speaker lock, and pipes the reply into
-`bin/claude-tts speak`. The Python package (`tts/`) extracts and cleans the
-spoken text, walks the engine chain until one synthesizes audio, and plays it.
+`hooks/hooks.json` registers a Stop hook that runs `bin/speak.sh` via `bash`
+(portable across Linux, macOS, and Windows Git Bash). The launcher pipes the
+reply into `bin/claude-tts speak`, which returns immediately after spawning a
+detached worker. The Python package (`tts/`) does the cross-platform work:
+skip if other audio is playing (Linux MPRIS), take a single-speaker lock
+(`fcntl`/`msvcrt`), extract and clean the spoken text, walk the engine chain
+until one synthesizes audio, and play it.

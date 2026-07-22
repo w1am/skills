@@ -15,6 +15,8 @@ If the user asked for the offline Kokoro voice, run it with the `--kokoro` flag 
 ${CLAUDE_PLUGIN_ROOT}/bin/setup.sh --kokoro
 ```
 
-After it finishes, the script prints `claude-tts doctor` output. Report whether an engine is ready and whether an audio player was found. If no player was found, tell the user to install one of: mpv, ffmpeg (ffplay), or pulseaudio (paplay).
+On Windows, run these under Git Bash (bundled with Git for Windows, which Claude Code already uses on Windows).
+
+After it finishes, the script prints `claude-tts doctor` output. Report whether an engine is ready and whether an audio player was found. macOS ships `afplay` and Windows has a built-in PowerShell player, so a player is only a concern on Linux. If Linux reports no player, tell the user to install one of: mpv, ffmpeg (ffplay), or pulseaudio (paplay).
 
 Then remind the user to select the voice output style with `/output-style Spoken` if they want replies tuned for speech.

@@ -9,9 +9,17 @@ export PYTHONPATH="$ROOT${PYTHONPATH:+:$PYTHONPATH}"
 PATH="$HOME/.local/bin:$PATH"
 export PATH
 
-VENV="$ROOT/tts-venv/bin/python"
-PYTHON="${CC_TTS_PYTHON:-$([ -x "$VENV" ] && echo "$VENV" || command -v python3)}"
+find_python() {
+  if [ -n "${CC_TTS_PYTHON:-}" ]; then echo "$CC_TTS_PYTHON"; return; fi
+  for candidate in "$ROOT/tts-venv/bin/python" "$ROOT/tts-venv/Scripts/python.exe"; do
+    if [ -x "$candidate" ]; then echo "$candidate"; return; fi
+  done
+  for name in python3 python; do
+    if command -v "$name" >/dev/null 2>&1; then command -v "$name"; return; fi
+  done
+}
 
+PYTHON="$(find_python)"
 [ -n "$PYTHON" ] || { echo "no python interpreter found" >&2; exit 1; }
 
 cd "$ROOT" || { echo "cannot enter $ROOT" >&2; exit 1; }

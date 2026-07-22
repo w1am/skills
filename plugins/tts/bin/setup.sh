@@ -4,6 +4,8 @@ set -eu
 # Default engine is edge-tts (free, no key), installed as a global uv tool so the
 # launcher finds it on PATH. --kokoro adds the offline engine: a pinned-Python venv
 # (onnxruntime ships no wheels past 3.12) plus a ~338MB model download.
+#
+# Portable across Linux, macOS, and Windows (run under Git Bash).
 
 SELF="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 ROOT="$(dirname "$SELF")"
@@ -12,6 +14,11 @@ MODELS="$ROOT/tts-models"
 PYTHON_VERSION=3.12
 KOKORO_PKGS="kokoro-onnx soundfile"
 KOKORO_BASE="https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0"
+
+case "$(uname -s)" in
+  MINGW*|MSYS*|CYGWIN*) IS_WINDOWS=1; VENV_PY="$VENV/Scripts/python.exe" ;;
+  *)                    IS_WINDOWS=0; VENV_PY="$VENV/bin/python" ;;
+esac
 
 PATH="$HOME/.local/bin:$PATH"
 export PATH
@@ -24,15 +31,20 @@ for arg in "$@"; do
   esac
 done
 
-command -v python3 >/dev/null || { echo "python3 is required" >&2; exit 1; }
+command -v python3 >/dev/null 2>&1 || command -v python >/dev/null 2>&1 \
+  || { echo "python3 is required" >&2; exit 1; }
 
 if ! command -v uv >/dev/null 2>&1; then
   echo "==> installing uv"
-  curl -LsSf https://astral.sh/uv/install.sh | sh
+  if [ "$IS_WINDOWS" = 1 ]; then
+    powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://astral.sh/uv/install.ps1 | iex"
+  else
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+  fi
   PATH="$HOME/.local/bin:$PATH"
   export PATH
 fi
-command -v uv >/dev/null || { echo "uv still not on PATH; open a new shell and rerun" >&2; exit 1; }
+command -v uv >/dev/null 2>&1 || { echo "uv still not on PATH; open a new shell and rerun" >&2; exit 1; }
 
 if ! command -v edge-tts >/dev/null 2>&1; then
   echo "==> installing edge-tts (default engine)"
@@ -42,7 +54,7 @@ fi
 if [ "$want_kokoro" = 1 ]; then
   echo "==> building offline engine venv ($KOKORO_PKGS)"
   uv venv --quiet --allow-existing --python "$PYTHON_VERSION" "$VENV"
-  uv pip install --quiet --python "$VENV/bin/python" $KOKORO_PKGS
+  uv pip install --quiet --python "$VENV_PY" $KOKORO_PKGS
   mkdir -p "$MODELS"
   for f in kokoro-v1.0.onnx voices-v1.0.bin; do
     if [ -s "$MODELS/$f" ]; then echo "    have $f"; continue; fi
@@ -53,4 +65,4 @@ fi
 
 echo
 echo "==> done. checking status:"
-"$SELF/claude-tts" doctor
+bash "$SELF/claude-tts" doctor
