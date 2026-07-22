@@ -1,0 +1,8 @@
+{
+  "name": "skills",
+  "version": "0.1.0",
+  "description": "A bundle of personal skills. Currently ships naming-review, which reviews names in recently-changed code for drift and simplicity.",
+  "keywords": ["skills", "naming", "review", "refactor"],
+  "author": { "name": "w1am" },
+  "license": "MIT"
+}

@@ -30,9 +30,9 @@
       "description": "Personal slash commands: session id, cut-release, and deepen."
     },
     {
-      "name": "naming-review",
-      "source": "./plugins/naming-review",
-      "description": "Skill that reviews names in recently-changed code for drift and simplicity."
+      "name": "skills",
+      "source": "./plugins/skills",
+      "description": "A bundle of personal skills (naming-review, and more as they land)."
     }
   ]
 }
