@@ -2,9 +2,9 @@
 
 All personal agent skills in one plugin, organized by category the way
 [mattpocock/skills](https://github.com/mattpocock/skills) does it: each skill is
-a folder with a `SKILL.md`, grouped under a category directory with its own
-`README.md`, and every skill is listed explicitly in the manifest (category
-subfolders aren't auto-discovered).
+a folder with a `SKILL.md`, grouped under a category directory, and every skill
+is listed explicitly in the manifest (category subfolders aren't
+auto-discovered).
 
 ## Install
 
@@ -22,12 +22,10 @@ trigger phrasing may also be model-invoked; the rest set
 ```
 skills/
   engineering/
-    README.md
     naming-review/   SKILL.md
     deepen/          SKILL.md
     cut-release/     SKILL.md
   misc/
-    README.md
     session/         SKILL.md
 ```
 
