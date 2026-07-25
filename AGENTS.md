@@ -7,7 +7,7 @@ the interactive `/plugin` TUI — use the `claude plugin` CLI.
 ## Facts you need
 
 - Marketplace name: `w1am`. Source repo: `w1am/skills`. Install ids: `<plugin>@w1am`.
-- Plugins: `tts`, `notify`, `sudo-askpass`, `tmux-title`, `w1am-skills`.
+- Plugins: `friday`, `notify`, `sudo-askpass`, `tmux-title`, `w1am-skills`.
 - After `claude plugin marketplace add`, the repo is cloned to
   `~/.claude/plugins/marketplaces/w1am/`, so any shipped script is under
   `~/.claude/plugins/marketplaces/w1am/plugins/<plugin>/…`.
@@ -18,7 +18,7 @@ the interactive `/plugin` TUI — use the `claude plugin` CLI.
 
 ```sh
 claude plugin marketplace add w1am/skills
-for p in tts notify sudo-askpass tmux-title w1am-skills; do
+for p in friday notify sudo-askpass tmux-title w1am-skills; do
   claude plugin install "$p@w1am" --scope user
 done
 claude plugin list
@@ -27,8 +27,8 @@ claude plugin list
 ## Per-plugin setup and verification
 
 ```sh
-# tts — install the default engine (edge-tts via uv) and confirm it can speak.
-tts_bin="$(dirname "$(find ~/.claude/plugins/marketplaces/w1am -path '*/tts/bin/setup.sh' | head -1)")"
+# friday — install the default engine (edge-tts via uv) and confirm it can speak.
+tts_bin="$(dirname "$(find ~/.claude/plugins/marketplaces/w1am -path '*/friday/bin/setup.sh' | head -1)")"
 bash "$tts_bin/setup.sh"            # add --kokoro for the offline engine
 "$tts_bin/claude-tts" doctor        # shows the engine chain and audio player
 "$tts_bin/claude-tts" say "ready"   # optional smoke test
@@ -45,7 +45,7 @@ bash "$(find ~/.claude/plugins/marketplaces/w1am -path '*/notify/bin/notify.sh' 
 
 ## System prerequisites (install as needed for the target OS)
 
-- `tts`: `python3`, an audio player (`mpv` / `ffplay` / `paplay` / `afplay`), network for `edge`.
+- `friday`: `python3`, an audio player (`mpv` / `ffplay` / `paplay` / `afplay`), network for `edge`.
 - `notify`: `paplay` (Linux) or `afplay` (macOS).
 - `sudo-askpass`: `zenity` (Linux) for the password dialog.
 - `w1am-skills` `/session`: a clipboard tool (`wl-copy` / `xclip` / `xsel` / `pbcopy`).

@@ -6,8 +6,8 @@
   "description": "w1am's Claude Code plugins as an installable marketplace: TTS, notifications, sudo askpass, tmux titles, dev commands, and agent skills.",
   "plugins": [
     {
-      "name": "tts",
-      "source": "./plugins/tts",
+      "name": "friday",
+      "source": "./plugins/friday",
       "description": "Speak Claude Code's replies aloud, with a Spoken output style and a fallback chain of TTS engines."
     },
     {

@@ -1,4 +1,4 @@
-# tts
+# friday
 
 Speak Claude Code's replies aloud. Ships a **Stop hook** that reads each reply, a
 fallback **chain of TTS engines** — `say` (macOS native, offline), `edge` (free,
@@ -12,7 +12,7 @@ that style it falls back to speaking the first paragraph.
 
 ```sh
 claude plugin marketplace add w1am/skills
-claude plugin install tts@w1am --scope user
+claude plugin install friday@w1am --scope user
 ```
 
 ## Setup (required, one step)
@@ -20,7 +20,7 @@ claude plugin install tts@w1am --scope user
 The engine isn't bundled; a setup script installs it. Locate and run it:
 
 ```sh
-tts_bin="$(dirname "$(find ~/.claude/plugins/marketplaces/w1am -path '*/tts/bin/setup.sh' | head -1)")"
+tts_bin="$(dirname "$(find ~/.claude/plugins/marketplaces/w1am -path '*/friday/bin/setup.sh' | head -1)")"
 bash "$tts_bin/setup.sh"            # default: edge-tts as a global uv tool
 bash "$tts_bin/setup.sh" --kokoro  # optional: offline engine + ~350MB model
 ```
