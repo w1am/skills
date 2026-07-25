@@ -1,11 +1,24 @@
-# w1am/agents
+# Agents
 
-Personal Claude Code marketplace.
+A marketplace is a repo that Claude Code installs plugins from, the way a package
+registry works for a language. This is a personal one. Each plugin is a bundle of
+hooks and commands that changes how a session behaves at the terminal, and each is
+installed on its own.
+
+## Plugins
+
+| Plugin                                 | What it does                                                     |
+| -------------------------------------- | ---------------------------------------------------------------- |
+| [`friday`](plugins/friday)             | Speaks each reply aloud, so you don't have to watch the terminal. |
+| [`notify`](plugins/notify)             | Chimes when a turn ends.                                          |
+| [`sudo-askpass`](plugins/sudo-askpass) | Lets the Bash tool run `sudo` via a GUI password dialog.          |
+| [`tmux-title`](plugins/tmux-title)     | Names the tmux window after the project directory.                |
+| [`workbench`](plugins/workbench)       | Recurring tasks as slash commands: naming review, logic deepening, release notes, plain-language explanations, session id. |
 
 ## Install
 
-Merge into `~/.claude/settings.json` and restart. This registers the marketplace and
-installs all five.
+Merge into `~/.claude/settings.json` and restart. This registers the marketplace
+and installs all five.
 
 ```json
 {
@@ -25,18 +38,8 @@ installs all five.
 Or one at a time: `claude plugin marketplace add w1am/agents`, then
 `claude plugin install <name>@w1am`.
 
-Everything is active on install except `friday`, which needs one setup step: see
-[plugins/friday](plugins/friday/README.md).
-
-## Plugins
-
-| Plugin                                 | What it does                                                                                      |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| [`friday`](plugins/friday)             | Speaks each reply aloud (`edge`, `kokoro`, `elevenlabs`) and ships the Spoken output style.       |
-| [`notify`](plugins/notify)             | Chime when a turn ends.                                                                           |
-| [`sudo-askpass`](plugins/sudo-askpass) | Routes `sudo` prompts through a GUI askpass helper.                                               |
-| [`tmux-title`](plugins/tmux-title)     | Renames the tmux window to the project dir.                                                       |
-| [`workbench`](plugins/workbench)       | Skills as commands: `/naming-review`, `/deepen`, `/cut-release`, `/business-context`, `/session`. |
+Everything works the moment it is installed except `friday`, which needs one
+setup step: see [plugins/friday](plugins/friday/README.md).
 
 ## Manage
 
