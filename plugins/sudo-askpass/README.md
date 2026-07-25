@@ -9,7 +9,7 @@ as it's installed.
 ## Install (agent, shell)
 
 ```sh
-claude plugin marketplace add w1am/skills
+claude plugin marketplace add w1am/agents
 claude plugin install sudo-askpass@w1am --scope user
 ```
 

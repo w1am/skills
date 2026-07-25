@@ -8,7 +8,7 @@ outside tmux. Active as soon as it's installed; no setup or dependencies beyond
 ## Install (agent, shell)
 
 ```sh
-claude plugin marketplace add w1am/skills
+claude plugin marketplace add w1am/agents
 claude plugin install tmux-title@w1am --scope user
 ```
 

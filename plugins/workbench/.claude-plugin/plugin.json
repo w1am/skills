@@ -2,7 +2,7 @@
   "name": "workbench",
   "description": "Agent skills, organized by category. Naming review, logic-deepening, release notes, business-context explanation, and a session-id helper — each runnable as a /command.",
   "author": { "name": "w1am" },
-  "repository": "https://github.com/w1am/skills",
+  "repository": "https://github.com/w1am/agents",
   "license": "MIT",
   "keywords": ["skills", "engineering", "naming", "review", "refactor", "release", "requirements"],
   "skills": [

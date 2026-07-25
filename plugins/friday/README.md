@@ -11,7 +11,7 @@ that style it falls back to speaking the first paragraph.
 ## Install (agent, shell)
 
 ```sh
-claude plugin marketplace add w1am/skills
+claude plugin marketplace add w1am/agents
 claude plugin install friday@w1am --scope user
 ```
 

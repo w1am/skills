@@ -1,13 +1,29 @@
-# w1am/skills
+# w1am/agents
 
 Personal Claude Code marketplace.
 
 ## Install
 
-```sh
-claude plugin marketplace add w1am/skills
-for p in friday notify sudo-askpass tmux-title workbench; do claude plugin install "$p@w1am"; done
+Merge into `~/.claude/settings.json` and restart. This registers the marketplace and
+installs all five.
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "w1am": { "source": { "source": "github", "repo": "w1am/agents" } }
+  },
+  "enabledPlugins": {
+    "friday@w1am": true,
+    "notify@w1am": true,
+    "sudo-askpass@w1am": true,
+    "tmux-title@w1am": true,
+    "workbench@w1am": true
+  }
+}
 ```
+
+Or one at a time: `claude plugin marketplace add w1am/agents`, then
+`claude plugin install <name>@w1am`.
 
 Everything is active on install except `friday`, which needs one setup step: see
 [plugins/friday](plugins/friday/README.md).
