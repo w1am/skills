@@ -75,6 +75,7 @@ behavior:
 
 | Var | Default | Effect |
 |-----|---------|--------|
+| `CC_TTS_ROOT` | `~/.claude` | Where the engine venv, models, and log live. Kept outside the plugin dir so updates don't orphan them. |
 | `CC_TTS_CHAIN` | per-OS (see above) | Comma-separated fallback order; a single value pins one engine. |
 | `CC_TTS_MAX_CHARS` | `2000` | Truncate longer replies. |
 | `CC_TTS_TIMEOUT` | per-engine | Override synthesis timeout (seconds) for every engine. |

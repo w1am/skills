@@ -4,14 +4,14 @@ set -uo pipefail
 SELF="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 ROOT="$(dirname "$SELF")"
 
-export CC_TTS_ROOT="$ROOT"
+export CC_TTS_ROOT="${CC_TTS_ROOT:-$HOME/.claude}"
 export PYTHONPATH="$ROOT${PYTHONPATH:+:$PYTHONPATH}"
 PATH="$HOME/.local/bin:$PATH"
 export PATH
 
 find_python() {
   if [ -n "${CC_TTS_PYTHON:-}" ]; then echo "$CC_TTS_PYTHON"; return; fi
-  for candidate in "$ROOT/tts-venv/bin/python" "$ROOT/tts-venv/Scripts/python.exe"; do
+  for candidate in "$CC_TTS_ROOT/tts-venv/bin/python" "$CC_TTS_ROOT/tts-venv/Scripts/python.exe"; do
     if [ -x "$candidate" ]; then echo "$candidate"; return; fi
   done
   for name in python3 python; do

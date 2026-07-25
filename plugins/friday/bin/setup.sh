@@ -8,9 +8,9 @@ set -eu
 # Portable across Linux, macOS, and Windows (run under Git Bash).
 
 SELF="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
-ROOT="$(dirname "$SELF")"
-VENV="$ROOT/tts-venv"
-MODELS="$ROOT/tts-models"
+DATA="${CC_TTS_ROOT:-$HOME/.claude}"
+VENV="$DATA/tts-venv"
+MODELS="$DATA/tts-models"
 PYTHON_VERSION=3.12
 KOKORO_PKGS="kokoro-onnx soundfile"
 KOKORO_BASE="https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0"
