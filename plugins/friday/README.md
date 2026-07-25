@@ -22,13 +22,6 @@ Test it, and set `CC_TTS_CHIME=0` to silence it and keep only speech:
 bash "$(find ~/.claude/plugins/marketplaces/w1am -path '*/friday/bin/chime.sh' | head -1)"
 ```
 
-## Install (agent, shell)
-
-```sh
-claude plugin marketplace add w1am/agents
-claude plugin install friday@w1am --scope user
-```
-
 ## Speech setup (required, one step)
 
 The engine isn't bundled; a setup script installs it. Locate and run it:

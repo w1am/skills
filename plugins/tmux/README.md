@@ -5,13 +5,6 @@ running, then restores tmux's automatic renaming when the session ends. No-op
 outside tmux. Active as soon as it's installed; no setup or dependencies beyond
 `tmux`.
 
-## Install (agent, shell)
-
-```sh
-claude plugin marketplace add w1am/agents
-claude plugin install tmux@w1am --scope user
-```
-
 ## Verify
 
 Start a Claude Code session inside a tmux window; the window title becomes

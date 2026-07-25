@@ -6,13 +6,6 @@ rewrites any command-position `sudo` into `SUDO_ASKPASS=<helper> sudo -A …`, s
 sudo asks for the password through a GUI dialog instead of a tty. Active as soon
 as it's installed.
 
-## Install (agent, shell)
-
-```sh
-claude plugin marketplace add w1am/agents
-claude plugin install askpass@w1am --scope user
-```
-
 ## Prerequisite
 
 Linux with `zenity` for the password dialog (the default helper). macOS or other
