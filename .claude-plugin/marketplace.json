@@ -3,27 +3,27 @@
   "owner": {
     "name": "w1am"
   },
-  "description": "w1am's Claude Code plugins as an installable marketplace: TTS, notifications, sudo askpass, tmux titles, dev commands, and agent skills.",
+  "description": "w1am's Claude Code plugins, installable as one marketplace: spoken replies when a turn ends, a desktop password prompt for sudo, project names on tmux windows, and a set of engineering skills.",
   "plugins": [
     {
       "name": "friday",
       "source": "./plugins/friday",
-      "description": "Chime and speak each reply aloud when a turn ends, with a Spoken output style and a fallback chain of TTS engines."
+      "description": "When Claude Code finishes a reply, plays a chime and reads the answer aloud, so you can work elsewhere and still follow along without watching the terminal."
     },
     {
       "name": "sudo-askpass",
       "source": "./plugins/sudo-askpass",
-      "description": "Let the Bash tool run sudo by routing the password prompt through a native GUI askpass helper."
+      "description": "When a command needs sudo, asks for your password in a desktop dialog instead of a terminal Claude Code cannot type into, so admin commands finish on the first try."
     },
     {
       "name": "tmux",
       "source": "./plugins/tmux",
-      "description": "Rename the current tmux window to the project directory while Claude Code runs."
+      "description": "Names the tmux window after the project for as long as a session runs, so several open sessions stay easy to tell apart, and hands naming back to tmux on exit."
     },
     {
       "name": "workbench",
       "source": "./plugins/workbench",
-      "description": "Personal agent skills organized by category, each runnable as a /command: naming-review, deepen, cut-release, business-context, session.",
+      "description": "Slash commands for recurring engineering work: review the names in changed code, untangle knotted business logic, draft release notes for a version range, explain a business term to a newcomer, and copy the current session id.",
       "category": "engineering",
       "keywords": ["skills", "engineering", "naming", "review", "release", "requirements"]
     }

@@ -1,6 +1,6 @@
 {
   "name": "friday",
-  "description": "Chime and speak when Claude Code finishes a turn. Ships a Stop hook, a completion chime, a fallback chain of TTS engines (edge, kokoro, elevenlabs), and a Spoken output style tuned for the ear.",
+  "description": "When Claude Code finishes a reply, plays a chime and reads the answer aloud, so you can work elsewhere and still follow along without watching the terminal. Replies are written for the ear, and speech falls back through edge, kokoro, and elevenlabs so one unavailable engine does not silence the session.",
   "keywords": ["tts", "text-to-speech", "voice", "accessibility", "audio", "notification"],
   "author": { "name": "w1am" },
   "license": "MIT",

@@ -1,6 +1,6 @@
 {
   "name": "tmux",
-  "description": "Rename the current tmux window to the project directory while Claude Code runs, and restore automatic renaming on exit.",
+  "description": "Names the tmux window after the project for as long as a session runs, so several open sessions stay easy to tell apart at a glance, and hands naming back to tmux when the session ends.",
   "keywords": ["tmux", "hook", "terminal"],
   "author": { "name": "w1am" },
   "license": "MIT"

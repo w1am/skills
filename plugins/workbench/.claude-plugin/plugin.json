@@ -1,6 +1,6 @@
 {
   "name": "workbench",
-  "description": "Agent skills, organized by category. Naming review, logic-deepening, release notes, business-context explanation, and a session-id helper — each runnable as a /command.",
+  "description": "Slash commands for recurring engineering work: review the names in changed code, untangle knotted business logic, draft release notes for a version range, explain a business term to a newcomer, and copy the current session id.",
   "author": { "name": "w1am" },
   "repository": "https://github.com/w1am/agents",
   "license": "MIT",

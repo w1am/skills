@@ -1,6 +1,6 @@
 {
   "name": "sudo-askpass",
-  "description": "Let the Bash tool run sudo by routing the password prompt through a native GUI askpass helper.",
+  "description": "When a command needs sudo, asks for your password in a desktop dialog instead of a terminal Claude Code cannot type into, so admin commands finish on the first try rather than hanging or coming back to you to rerun by hand.",
   "keywords": ["sudo", "askpass", "hook", "linux"],
   "author": { "name": "w1am" },
   "license": "MIT"
