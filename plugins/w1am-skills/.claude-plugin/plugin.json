@@ -1,6 +1,5 @@
 {
   "name": "w1am-skills",
-  "version": "0.1.0",
   "description": "w1am's agent skills, organized by category. Naming review, logic-deepening, release notes, business-context explanation, and a session-id helper — each runnable as a /command.",
   "author": { "name": "w1am" },
   "repository": "https://github.com/w1am/skills",

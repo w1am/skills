@@ -28,4 +28,4 @@ You should hear one chime.
 
 `hooks/hooks.json` registers a Stop hook → `bin/notify.sh`, which plays a system
 sound: `afplay` on macOS, `paplay` (freedesktop "complete" sound) elsewhere. If
-you also run `tts`, both fire on Stop — the chime plays alongside the spoken reply.
+you also run `friday`, both fire on Stop — the chime plays alongside the spoken reply.
