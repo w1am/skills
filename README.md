@@ -20,7 +20,7 @@ claude plugin install friday@w1am       --scope user
 claude plugin install notify@w1am       --scope user
 claude plugin install sudo-askpass@w1am --scope user
 claude plugin install tmux-title@w1am   --scope user
-claude plugin install w1am-skills@w1am  --scope user
+claude plugin install workbench@w1am    --scope user
 
 # Confirm what's installed.
 claude plugin list
@@ -37,7 +37,7 @@ one post-install setup step — see [plugins/friday](plugins/friday/README.md).
 | [`notify`](plugins/notify) | Stop hook | yes | Plays a completion chime when a turn ends. |
 | [`sudo-askpass`](plugins/sudo-askpass) | PreToolUse hook | yes | Lets the Bash tool run `sudo` via a GUI askpass helper. |
 | [`tmux-title`](plugins/tmux-title) | Session hooks | yes | Renames the tmux window to the project dir while Claude runs. |
-| [`w1am-skills`](plugins/w1am-skills) | Skills | yes | Skills runnable as `/commands`: `/naming-review`, `/deepen`, `/cut-release`, `/business-context`, `/session`. |
+| [`workbench`](plugins/workbench) | Skills | yes | Skills runnable as `/commands`: `/naming-review`, `/deepen`, `/cut-release`, `/business-context`, `/session`. |
 
 ## Manage (agent, shell)
 
@@ -60,11 +60,11 @@ To try a plugin without installing it, load it for a single session:
 .claude-plugin/marketplace.json   # marketplace manifest, lists every plugin
 AGENTS.md                         # one-shot agent runbook
 plugins/
-  tts/            hooks/ commands/ output-styles/ bin/ tts/
+  friday/         hooks/ commands/ output-styles/ bin/ tts/
   notify/         hooks/ bin/
   sudo-askpass/   hooks/ bin/
   tmux-title/     hooks/
-  w1am-skills/    skills/engineering/… skills/communication/… skills/misc/…
+  workbench/      skills/engineering/… skills/communication/… skills/misc/…
 ```
 
 Each plugin has its own `README.md` and `.claude-plugin/plugin.json`. The

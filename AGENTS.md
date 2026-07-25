@@ -7,7 +7,7 @@ the interactive `/plugin` TUI — use the `claude plugin` CLI.
 ## Facts you need
 
 - Marketplace name: `w1am`. Source repo: `w1am/skills`. Install ids: `<plugin>@w1am`.
-- Plugins: `friday`, `notify`, `sudo-askpass`, `tmux-title`, `w1am-skills`.
+- Plugins: `friday`, `notify`, `sudo-askpass`, `tmux-title`, `workbench`.
 - After `claude plugin marketplace add`, the repo is cloned to
   `~/.claude/plugins/marketplaces/w1am/`, so any shipped script is under
   `~/.claude/plugins/marketplaces/w1am/plugins/<plugin>/…`.
@@ -18,7 +18,7 @@ the interactive `/plugin` TUI — use the `claude plugin` CLI.
 
 ```sh
 claude plugin marketplace add w1am/skills
-for p in friday notify sudo-askpass tmux-title w1am-skills; do
+for p in friday notify sudo-askpass tmux-title workbench; do
   claude plugin install "$p@w1am" --scope user
 done
 claude plugin list
@@ -40,7 +40,7 @@ echo '{"tool_name":"Bash","tool_input":{"command":"sudo true"}}' | python3 "$hoo
 # notify — play the chime once.
 bash "$(find ~/.claude/plugins/marketplaces/w1am -path '*/notify/bin/notify.sh' | head -1)"
 
-# tmux-title, w1am-skills — no setup; active/available after install.
+# tmux-title, workbench — no setup; active/available after install.
 ```
 
 ## System prerequisites (install as needed for the target OS)
@@ -48,7 +48,7 @@ bash "$(find ~/.claude/plugins/marketplaces/w1am -path '*/notify/bin/notify.sh' 
 - `friday`: `python3`, an audio player (`mpv` / `ffplay` / `paplay` / `afplay`), network for `edge`.
 - `notify`: `paplay` (Linux) or `afplay` (macOS).
 - `sudo-askpass`: `zenity` (Linux) for the password dialog.
-- `w1am-skills` `/session`: a clipboard tool (`wl-copy` / `xclip` / `xsel` / `pbcopy`).
+- `workbench` `/session`: a clipboard tool (`wl-copy` / `xclip` / `xsel` / `pbcopy`).
 
 ## Manage
 
@@ -60,5 +60,5 @@ claude plugin marketplace remove w1am
 ```
 
 Each plugin's `README.md` holds its full config surface (env vars, files). Skill
-bodies under `plugins/w1am-skills/skills/**/SKILL.md` are self-contained
+bodies under `plugins/workbench/skills/**/SKILL.md` are self-contained
 instructions you can follow directly.

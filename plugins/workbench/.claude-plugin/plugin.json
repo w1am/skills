@@ -1,6 +1,6 @@
 {
-  "name": "w1am-skills",
-  "description": "w1am's agent skills, organized by category. Naming review, logic-deepening, release notes, business-context explanation, and a session-id helper — each runnable as a /command.",
+  "name": "workbench",
+  "description": "Agent skills, organized by category. Naming review, logic-deepening, release notes, business-context explanation, and a session-id helper — each runnable as a /command.",
   "author": { "name": "w1am" },
   "repository": "https://github.com/w1am/skills",
   "license": "MIT",
