@@ -11,8 +11,8 @@
       "description": "When Claude Code finishes a reply, plays a chime and reads the answer aloud, so you can work elsewhere and still follow along without watching the terminal."
     },
     {
-      "name": "sudo-askpass",
-      "source": "./plugins/sudo-askpass",
+      "name": "askpass",
+      "source": "./plugins/askpass",
       "description": "When a command needs sudo, asks for your password in a desktop dialog instead of a terminal Claude Code cannot type into, so admin commands finish on the first try."
     },
     {

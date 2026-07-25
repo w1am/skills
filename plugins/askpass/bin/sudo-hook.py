@@ -18,7 +18,7 @@ import re
 import sys
 
 HELPER = os.environ.get("CC_SUDO_ASKPASS") or os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "sudo-askpass.sh"
+    os.path.dirname(os.path.abspath(__file__)), "askpass.sh"
 )
 
 # `sudo` only when it starts a command: at the very start, or right after a

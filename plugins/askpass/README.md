@@ -1,4 +1,4 @@
-# sudo-askpass
+# askpass
 
 Claude Code's Bash tool has no interactive tty, so `sudo` normally fails with
 "a terminal is required to read the password". This plugin's PreToolUse hook
@@ -10,7 +10,7 @@ as it's installed.
 
 ```sh
 claude plugin marketplace add w1am/agents
-claude plugin install sudo-askpass@w1am --scope user
+claude plugin install askpass@w1am --scope user
 ```
 
 ## Prerequisite
@@ -24,17 +24,17 @@ Feed the hook a sample Bash tool call and confirm it rewrites `sudo` (no sudo
 actually runs, no password prompt):
 
 ```sh
-hook="$(find ~/.claude/plugins/marketplaces/w1am -path '*/sudo-askpass/bin/sudo-hook.py' | head -1)"
+hook="$(find ~/.claude/plugins/marketplaces/w1am -path '*/askpass/bin/sudo-hook.py' | head -1)"
 echo '{"tool_name":"Bash","tool_input":{"command":"sudo apt update"}}' | python3 "$hook"
 ```
 
-Expected output contains `SUDO_ASKPASS=…/sudo-askpass.sh sudo -A apt update`.
+Expected output contains `SUDO_ASKPASS=…/askpass.sh sudo -A apt update`.
 
 ## Configuration
 
 | Var | Effect |
 |-----|--------|
-| `CC_SUDO_ASKPASS` | Absolute path to a custom askpass helper. Defaults to the bundled `sudo-askpass.sh`. |
+| `CC_SUDO_ASKPASS` | Absolute path to a custom askpass helper. Defaults to the bundled `askpass.sh`. |
 
 Helper contract (imposed by `sudo -A`): print the password to stdout and exit 0,
 or print nothing and exit non-zero to abort.
@@ -43,7 +43,7 @@ or print nothing and exit non-zero to abort.
 
 `hooks/hooks.json` registers a PreToolUse (Bash) hook → `bin/sudo-hook.py`. It
 rewrites `sudo` at a command position and sets `SUDO_ASKPASS` to
-`bin/sudo-askpass.sh`, which pops a `zenity` password dialog and prints the
+`bin/askpass.sh`, which pops a `zenity` password dialog and prints the
 password to sudo on stdout. The hook does **not** set a permission decision, so
 Claude Code's normal permission prompt for the rewritten command still applies. A
 `sudo` that opts out with `-n`/`-A` is left untouched, and the hook reports that

@@ -7,12 +7,12 @@ installed on its own.
 
 ## Plugins
 
-| Plugin                                 | What it does                                                     |
-| -------------------------------------- | ---------------------------------------------------------------- |
-| [`friday`](plugins/friday)             | Chimes and speaks each reply aloud, so you don't have to watch the terminal. |
-| [`sudo-askpass`](plugins/sudo-askpass) | Lets the Bash tool run `sudo` via a GUI password dialog.          |
-| [`tmux`](plugins/tmux)                 | Names the tmux window after the project directory.                |
-| [`workbench`](plugins/workbench)       | Recurring tasks as slash commands: naming review, logic deepening, release notes, plain-language explanations, session id. |
+| Plugin                           | What it does                                                                                                               |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| [`friday`](plugins/friday)       | Chimes and speaks each reply aloud, so you don't have to watch the terminal.                                               |
+| [`askpass`](plugins/askpass)     | Lets the Bash tool run `sudo` via a GUI password dialog.                                                                   |
+| [`tmux`](plugins/tmux)           | Names the tmux window after the project directory.                                                                         |
+| [`workbench`](plugins/workbench) | Recurring tasks as slash commands: naming review, logic deepening, release notes, plain-language explanations, session id. |
 
 ## Install
 
@@ -26,7 +26,7 @@ and installs all four.
   },
   "enabledPlugins": {
     "friday@w1am": true,
-    "sudo-askpass@w1am": true,
+    "askpass@w1am": true,
     "tmux@w1am": true,
     "workbench@w1am": true
   }
