@@ -1,12 +1,26 @@
 # friday
 
-Speak Claude Code's replies aloud. Ships a **Stop hook** that reads each reply, a
-fallback **chain of TTS engines** — `say` (macOS native, offline), `edge` (free,
-no key), `kokoro` (offline), `elevenlabs` (best quality, metered) — and a
-**Spoken** output style that makes replies sound right for the ear.
+Chime and speak when Claude Code finishes a turn. Ships a **Stop hook** that
+plays a completion chime and reads the reply, a fallback **chain of TTS
+engines** — `say` (macOS native, offline), `edge` (free, no key), `kokoro`
+(offline), `elevenlabs` (best quality, metered) — and a **Spoken** output style
+that makes replies sound right for the ear.
 
 The hook extracts the `<speak>…</speak>` block the Spoken style emits. Without
 that style it falls back to speaking the first paragraph.
+
+## Chime
+
+Works as soon as the plugin is installed, no setup. Plays a system sound:
+`afplay` on macOS (built in), `paplay` (freedesktop "complete" sound) elsewhere.
+On Linux that means PulseAudio's `paplay` plus the freedesktop sound theme
+(`/usr/share/sounds/freedesktop/…`, usually preinstalled).
+
+Test it, and set `CC_TTS_CHIME=0` to silence it and keep only speech:
+
+```sh
+bash "$(find ~/.claude/plugins/marketplaces/w1am -path '*/friday/bin/chime.sh' | head -1)"
+```
 
 ## Install (agent, shell)
 
@@ -15,7 +29,7 @@ claude plugin marketplace add w1am/agents
 claude plugin install friday@w1am --scope user
 ```
 
-## Setup (required, one step)
+## Speech setup (required, one step)
 
 The engine isn't bundled; a setup script installs it. Locate and run it:
 
@@ -75,6 +89,7 @@ behavior:
 
 | Var | Default | Effect |
 |-----|---------|--------|
+| `CC_TTS_CHIME` | `1` | Set to `0` to drop the completion chime and keep only speech. |
 | `CC_TTS_ROOT` | `~/.claude` | Where the engine venv, models, and log live. Kept outside the plugin dir so updates don't orphan them. |
 | `CC_TTS_CHAIN` | per-OS (see above) | Comma-separated fallback order; a single value pins one engine. |
 | `CC_TTS_MAX_CHARS` | `2000` | Truncate longer replies. |
@@ -95,10 +110,12 @@ List available voices per engine:
 
 ## How it works
 
-`hooks/hooks.json` registers a Stop hook that runs `bin/speak.sh` via `bash`
-(portable across Linux, macOS, and Windows Git Bash). The launcher pipes the
-reply into `bin/claude-tts speak`, which returns immediately after spawning a
-detached worker. The Python package (`tts/`) does the cross-platform work:
+`hooks/hooks.json` registers two Stop hooks, both run via `bash` (portable across
+Linux, macOS, and Windows Git Bash). `bin/chime.sh` plays the system sound.
+`bin/speak.sh` pipes the reply into `bin/claude-tts speak`, which returns
+immediately after spawning a detached worker. The chime doesn't suppress the
+speech: the "other audio is playing" check only looks at MPRIS media players,
+which `paplay`/`afplay` aren't. The Python package (`tts/`) does the cross-platform work:
 skip if other audio is playing (Linux MPRIS), take a single-speaker lock
 (`fcntl`/`msvcrt`), extract and clean the spoken text, walk the engine chain
 until one synthesizes audio, and play it.

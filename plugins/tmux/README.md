@@ -1,4 +1,4 @@
-# tmux-title
+# tmux
 
 Names the current tmux window after the project directory while Claude Code is
 running, then restores tmux's automatic renaming when the session ends. No-op
@@ -9,7 +9,7 @@ outside tmux. Active as soon as it's installed; no setup or dependencies beyond
 
 ```sh
 claude plugin marketplace add w1am/agents
-claude plugin install tmux-title@w1am --scope user
+claude plugin install tmux@w1am --scope user
 ```
 
 ## Verify

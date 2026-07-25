@@ -8,12 +8,7 @@
     {
       "name": "friday",
       "source": "./plugins/friday",
-      "description": "Speak Claude Code's replies aloud, with a Spoken output style and a fallback chain of TTS engines."
-    },
-    {
-      "name": "notify",
-      "source": "./plugins/notify",
-      "description": "Play a short completion chime when Claude Code finishes a turn."
+      "description": "Chime and speak each reply aloud when a turn ends, with a Spoken output style and a fallback chain of TTS engines."
     },
     {
       "name": "sudo-askpass",
@@ -21,8 +16,8 @@
       "description": "Let the Bash tool run sudo by routing the password prompt through a native GUI askpass helper."
     },
     {
-      "name": "tmux-title",
-      "source": "./plugins/tmux-title",
+      "name": "tmux",
+      "source": "./plugins/tmux",
       "description": "Rename the current tmux window to the project directory while Claude Code runs."
     },
     {

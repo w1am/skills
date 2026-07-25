@@ -9,16 +9,15 @@ installed on its own.
 
 | Plugin                                 | What it does                                                     |
 | -------------------------------------- | ---------------------------------------------------------------- |
-| [`friday`](plugins/friday)             | Speaks each reply aloud, so you don't have to watch the terminal. |
-| [`notify`](plugins/notify)             | Chimes when a turn ends.                                          |
+| [`friday`](plugins/friday)             | Chimes and speaks each reply aloud, so you don't have to watch the terminal. |
 | [`sudo-askpass`](plugins/sudo-askpass) | Lets the Bash tool run `sudo` via a GUI password dialog.          |
-| [`tmux-title`](plugins/tmux-title)     | Names the tmux window after the project directory.                |
+| [`tmux`](plugins/tmux)                 | Names the tmux window after the project directory.                |
 | [`workbench`](plugins/workbench)       | Recurring tasks as slash commands: naming review, logic deepening, release notes, plain-language explanations, session id. |
 
 ## Install
 
 Merge into `~/.claude/settings.json` and restart. This registers the marketplace
-and installs all five.
+and installs all four.
 
 ```json
 {
@@ -27,9 +26,8 @@ and installs all five.
   },
   "enabledPlugins": {
     "friday@w1am": true,
-    "notify@w1am": true,
     "sudo-askpass@w1am": true,
-    "tmux-title@w1am": true,
+    "tmux@w1am": true,
     "workbench@w1am": true
   }
 }
@@ -38,8 +36,9 @@ and installs all five.
 Or one at a time: `claude plugin marketplace add w1am/agents`, then
 `claude plugin install <name>@w1am`.
 
-Everything works the moment it is installed except `friday`, which needs one
-setup step: see [plugins/friday](plugins/friday/README.md).
+Everything works the moment it is installed except `friday`'s speech, which needs
+one setup step: see [plugins/friday](plugins/friday/README.md). Its chime works
+right away.
 
 ## Manage
 

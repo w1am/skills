@@ -1,7 +1,7 @@
 {
   "name": "friday",
-  "description": "Speak Claude Code's replies aloud. Ships a Stop hook, a fallback chain of TTS engines (edge, kokoro, elevenlabs), and a Spoken output style tuned for the ear.",
-  "keywords": ["tts", "text-to-speech", "voice", "accessibility", "audio"],
+  "description": "Chime and speak when Claude Code finishes a turn. Ships a Stop hook, a completion chime, a fallback chain of TTS engines (edge, kokoro, elevenlabs), and a Spoken output style tuned for the ear.",
+  "keywords": ["tts", "text-to-speech", "voice", "accessibility", "audio", "notification"],
   "author": { "name": "w1am" },
   "license": "MIT",
   "outputStyles": "./output-styles"
