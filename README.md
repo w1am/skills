@@ -37,7 +37,7 @@ one post-install setup step — see [plugins/tts](plugins/tts/README.md).
 | [`notify`](plugins/notify) | Stop hook | yes | Plays a completion chime when a turn ends. |
 | [`sudo-askpass`](plugins/sudo-askpass) | PreToolUse hook | yes | Lets the Bash tool run `sudo` via a GUI askpass helper. |
 | [`tmux-title`](plugins/tmux-title) | Session hooks | yes | Renames the tmux window to the project dir while Claude runs. |
-| [`w1am-skills`](plugins/w1am-skills) | Skills | yes | Skills runnable as `/commands`: `/naming-review`, `/deepen`, `/cut-release`, `/session`. |
+| [`w1am-skills`](plugins/w1am-skills) | Skills | yes | Skills runnable as `/commands`: `/naming-review`, `/deepen`, `/cut-release`, `/business-context`, `/session`. |
 
 ## Manage (agent, shell)
 
@@ -64,7 +64,7 @@ plugins/
   notify/         hooks/ bin/
   sudo-askpass/   hooks/ bin/
   tmux-title/     hooks/
-  w1am-skills/    skills/engineering/… skills/misc/…
+  w1am-skills/    skills/engineering/… skills/communication/… skills/misc/…
 ```
 
 Each plugin has its own `README.md` and `.claude-plugin/plugin.json`. The

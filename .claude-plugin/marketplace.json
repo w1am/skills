@@ -28,9 +28,9 @@
     {
       "name": "w1am-skills",
       "source": "./plugins/w1am-skills",
-      "description": "Personal agent skills organized by category, each runnable as a /command: naming-review, deepen, cut-release, session.",
+      "description": "Personal agent skills organized by category, each runnable as a /command: naming-review, deepen, cut-release, business-context, session.",
       "category": "engineering",
-      "keywords": ["skills", "engineering", "naming", "review", "release"]
+      "keywords": ["skills", "engineering", "naming", "review", "release", "requirements"]
     }
   ]
 }
